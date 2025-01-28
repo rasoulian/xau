@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="Gold.Pages.Popups.UpdatePopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:Gold.ViewModels"
+    x:DataType="vm:UpdateViewModel">
+
+    <VerticalStackLayout
+        Padding="20"
+        FlowDirection="RightToLeft"
+        WidthRequest="400">
+        <Label FontSize="Title">
+            بروزرسانی
+        </Label>
+
+        <Label
+            Padding="0,10,0,30"
+            FontFamily="IRANSans"
+            FontSize="Small"
+            HorizontalOptions="Start"
+            LineBreakMode="WordWrap"
+            SemanticProperties.HeadingLevel="Level2"
+            Style="{StaticResource SubHeadline}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span FontFamily="IRANSans">
+                        <Span.Text>
+                            آخرین نسخه
+                        </Span.Text>
+                    </Span>
+                    <Span
+                        FontFamily="IRANSans"
+                        Text=" گلد دیجیتال "
+                        TextColor="Blue"
+                        TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenUrlCommand}" CommandParameter="https://app.rasoulian.ir/gold/android" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                    <Span FontFamily="IRANSans">
+                        <Span.Text>
+                            آماده نصب است.
+                        </Span.Text>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Button
+            BackgroundColor="Transparent"
+            Command="{Binding OpenUrlCommand}"
+            CommandParameter="https://app.rasoulian.ir/gold/android"
+            FontAttributes="Bold"
+            HorizontalOptions="End"
+            Text="دانلود"
+            TextColor="Black" />
+    </VerticalStackLayout>
+
+
+
+</toolkit:Popup>

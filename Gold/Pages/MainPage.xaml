@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Gold.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:Gold.Controls"
+    xmlns:local="clr-namespace:Gold.Resources.Languages"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
+    xmlns:vm="clr-namespace:Gold.ViewModels"
+    x:DataType="vm:MainViewModel"
+    Shell.BackgroundColor="#fbad30"
+    Shell.ForegroundColor="White">
+
+    <ContentPage.Resources>
+        <converters:NumberToCurrencyConverter x:Key="numToCurrency" />
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Label
+                FontFamily="IRANSansBold"
+                FontSize="Title"
+                HeightRequest="50"
+                Text="{Static local:AppResources.GoldApp}"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OnRegisterCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe870;"
+                    Size="32"
+                    Color="White" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding PhoneCallCommand}" CommandParameter="09121349365">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe0b0;"
+                    Size="32"
+                    Color="White" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding OnNotificationCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe7f7;"
+                    Size="32"
+                    Color="White" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <StackLayout Margin="10">
+        <Grid
+            Margin="0,0"
+            Padding="0"
+            ColumnDefinitions="*,Auto"
+            RowDefinitions="*,*"
+            RowSpacing="0">
+
+            <Label
+                x:Name="entry2"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0,0,0,-20"
+                Padding="0"
+                FontSize="40"
+                HorizontalOptions="Start"
+                Text="{Binding Gold18, StringFormat='{0:N0}'}"
+                VerticalOptions="End">
+                <Label.Shadow>
+                    <Shadow
+                        Brush="Gold"
+                        Opacity="0.6"
+                        Offset="5,5" />
+                </Label.Shadow>
+            </Label>
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                FontSize="12"
+                HorizontalOptions="Start"
+                Text="{Binding Text, Source={x:Reference entry2}, Converter={StaticResource numToCurrency}, StringFormat='{0} تومان', ConverterParameter='fa-IR'}"
+                VerticalOptions="Start">
+
+                <Label.Shadow>
+                    <Shadow
+                        Brush="Gold"
+                        Opacity="0.6"
+                        Offset="5,5" />
+                </Label.Shadow>
+            </Label>
+
+            <Border
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="1"
+                Margin="10"
+                HeightRequest="80"
+                HorizontalOptions="Start"
+                Stroke="Gold"
+                StrokeShape="RoundRectangle 40,40,40,40"
+                StrokeThickness="2"
+                WidthRequest="80">
+
+                <VerticalStackLayout
+                    Margin="0"
+                    Padding="0"
+                    Spacing="0">
+
+                    <Label
+                        Margin="0,3,0,-20"
+                        FontSize="30"
+                        HorizontalOptions="Center"
+                        Text="{Binding PersianMonthDay}"
+                        TextColor="Black"
+                        VerticalOptions="Start" />
+
+                    <Label
+                        FontSize="13"
+                        HorizontalOptions="Center"
+                        Text="{Binding PersianMonthName}"
+                        TextColor="Black"
+                        VerticalOptions="Start" />
+
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+
+        <Border
+            Margin="10"
+            Padding="10"
+            Background="Gold"
+            HorizontalOptions="Center"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="2"
+            WidthRequest="350">
+            <Border.Stroke>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Offset="0.1" Color="#fec23b" />
+                    <GradientStop Offset="1.0" Color="#f78e34" />
+                </LinearGradientBrush>
+            </Border.Stroke>
+            <Grid
+                ColumnDefinitions="Auto,*"
+                ColumnSpacing="0"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0,-5,0,0"
+                    FontAttributes="Bold"
+                    FontSize="Title"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding OwnerName}"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="-5"
+                    FontAttributes="Bold"
+                    FontSize="Title"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding CardNumber}"
+                    TextColor="White" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Margin="0,-12"
+                    FontAttributes="Bold"
+                    FontSize="Subtitle"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding IbanNumber}"
+                    TextColor="White" />
+
+
+
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Margin="0,20,0,-10"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalTextAlignment="Start"
+                    Text="{Binding Grams, StringFormat='{0:N} گرم'}"
+                    TextColor="White" />
+
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Margin="0,20,0,-10"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="End"
+                    Text="{Binding Balance, StringFormat='{0:N0} تومان'}"
+                    TextColor="White" />
+
+                <Ellipse
+                    Grid.Row="0"
+                    Fill="#fbad30"
+                    HeightRequest="15"
+                    HorizontalOptions="End"
+                    IsVisible="False"
+                    WidthRequest="15" />
+
+            </Grid>
+        </Border>
+
+        <Button
+            Margin="10"
+            Command="{Binding OnDepositCommand}"
+            Text="واریز" />
+
+
+
+
+        <CollectionView>
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type vm:Order}">
+                    <vm:Order
+                        Amount="4293000"
+                        Gold18="1.1"
+                        Weight="21" />
+                    <vm:Order
+                        Amount="4293000"
+                        Gold18="1.1"
+                        Weight="21" />
+                    <vm:Order
+                        Amount="4293000"
+                        Gold18="1.1"
+                        Weight="21" />
+                    <vm:Order
+                        Amount="4293000"
+                        Gold18="1.1"
+                        Weight="21" />
+                    <vm:Order
+                        Amount="4293000"
+                        Gold18="1.1"
+                        Weight="21" />
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="0" ColumnDefinitions="*,*,*">
+                        <Label
+                            Text="{Binding Amount}"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <Label
+                            Grid.Column="1"
+                            Text="{Binding Weight}"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <Label
+                            Grid.Column="2"
+                            Text="{Binding Gold18}"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+    </StackLayout>
+</ContentPage>

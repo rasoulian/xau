@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Gold.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:page="clr-namespace:Gold.Pages"
+    Title="Gold"
+    Shell.BackgroundColor="#fbad30"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.ForegroundColor="White">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate page:MainPage}"
+        Route="MainPage" />
+
+</Shell>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Gold.Pages.NotificationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Gold.Controls"
+    xmlns:local="clr-namespace:Gold.Resources.Languages"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:vm="clr-namespace:Gold.ViewModels"
+    x:DataType="vm:NotificationViewModel"
+    Shell.BackgroundColor="#fbad30"
+    Shell.ForegroundColor="White">
+
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Label
+                FontFamily="IRANSansBold"
+                FontSize="Title"
+                HeightRequest="50"
+                Text="{Static local:AppResources.Messages}"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+
+    <StackLayout Margin="10">
+        <ActivityIndicator IsRunning="True" IsVisible="{Binding IsBusy}" />
+        <RefreshView
+            Command="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing}"
+            RefreshColor="Green">
+            <CollectionView
+                ItemSizingStrategy="MeasureFirstItem"
+                ItemsSource="{Binding Messages}"
+                RemainingItemsThreshold="5"
+                RemainingItemsThresholdReachedCommand="{Binding RefreshCommand}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <controls:NotificationTemplateView />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
+
+</ContentPage>

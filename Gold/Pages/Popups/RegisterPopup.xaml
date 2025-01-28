@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="Gold.Pages.Popups.RegisterPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:Gold.ViewModels"
+    x:DataType="vm:RegisterViewModel">
+
+    <VerticalStackLayout
+        Padding="20"
+        FlowDirection="RightToLeft"
+        WidthRequest="400">
+        <Entry
+            FlowDirection="LeftToRight"
+            FontSize="20"
+            Keyboard="Numeric"
+            MaxLength="11"
+            Placeholder="شماره موبایل"
+            PlaceholderColor="Red"
+            Text="{Binding MobileNumber}" />
+        <Entry
+            FlowDirection="LeftToRight"
+            FontSize="20"
+            Keyboard="Numeric"
+            MaxLength="10"
+            Placeholder="شماره ملی"
+            PlaceholderColor="Red"
+            Text="{Binding NationalId}" />
+        <Entry
+            FlowDirection="LeftToRight"
+            FontSize="20"
+            Keyboard="Numeric"
+            MaxLength="16"
+            Placeholder="شماره کارت بانکی"
+            PlaceholderColor="Red"
+            Text="{Binding CardNumber}" />
+        <Entry
+            FlowDirection="LeftToRight"
+            FontSize="20"
+            Keyboard="Numeric"
+            MaxLength="24"
+            Placeholder="شماره شبا بانکی"
+            PlaceholderColor="Red"
+            Text="{Binding IbanNumber, StringFormat='{0}'}" />
+
+
+
+        <Label
+            Padding="0,40,0,5"
+            FontFamily="IRANSans"
+            FontSize="Small"
+            HorizontalOptions="Start"
+            LineBreakMode="WordWrap"
+            SemanticProperties.HeadingLevel="Level2"
+            Style="{StaticResource SubHeadline}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span FontFamily="IRANSans">
+                        <Span.Text>
+                            تمامی
+                        </Span.Text>
+                    </Span>
+                    <Span
+                        FontFamily="IRANSans"
+                        Text=" شرایط "
+                        TextColor="Blue"
+                        TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenUrlCommand}" CommandParameter="https://form.rasoulian.ir/11.html" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                    <Span FontFamily="IRANSans">
+                        <Span.Text>
+                            گلد دیجیتال را قبول دارم.
+                        </Span.Text>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Button
+            Command="{Binding RegisterCommand}"
+            IsEnabled="{Binding IsFilled}"
+            Text="ثبتنام" />
+    </VerticalStackLayout>
+
+
+
+</toolkit:Popup>

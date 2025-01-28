@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Gold.Pages.AboutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Gold.Resources.Languages"
+    xmlns:vm="clr-namespace:Gold.ViewModels"
+    x:DataType="vm:AboutViewModel"
+    Shell.BackgroundColor="#fbad30"
+    Shell.ForegroundColor="White">
+
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill">
+            <Label
+                FontFamily="IRANSansBold"
+                FontSize="Medium"
+                HeightRequest="50"
+                Text="{Static local:AppResources.Terms}"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding OnRegisterCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe870;"
+                    Size="32"
+                    Color="White" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding PhoneCallCommand}" CommandParameter="09121349365">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe0b0;"
+                    Size="32"
+                    Color="White" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Command="{Binding OnNotificationCommand}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource
+                    FontFamily="MaterialIconsOutlined-Regular"
+                    Glyph="&#xe7f7;"
+                    Size="32"
+                    Color="White" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0">
+            <Image
+                Margin="0,40,0,0"
+                Aspect="AspectFit"
+                HeightRequest="185"
+                SemanticProperties.Description="dot net bot in a race car number eight"
+                Source="goldbank.png">
+                <Image.Shadow>
+                    <Shadow
+                        Brush="Gold"
+                        Opacity="0.7"
+                        Radius="40"
+                        Offset="20,20" />
+                </Image.Shadow>
+            </Image>
+            <Label
+                Margin="0,30"
+                FontFamily="IRANSansBold"
+                SemanticProperties.HeadingLevel="Level1"
+                Style="{StaticResource Headline}"
+                Text="بهتر از بانک"
+                TextColor="#f99f3f" />
+
+            <Label
+                FontFamily="IRANSans"
+                FontSize="Small"
+                HorizontalTextAlignment="Start"
+                LineBreakMode="WordWrap"
+                SemanticProperties.HeadingLevel="Level2"
+                Style="{StaticResource SubHeadline}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span FontFamily="IRANSansBold">
+                            <Span.Text>
+                                چنانچه تمامی شرایط ذیل را قبول دارید، بروی آیکون کارت در منو بالا بزنید و اطلاعات خود را ثبت نمایید.
+                            </Span.Text>
+                        </Span>
+                        <Span
+                            FontFamily="IRANSans"
+                            Text=" شرایط &#10;"
+                            TextColor="Blue"
+                            TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenUrlCommand}" CommandParameter="https://form.rasoulian.ir/11.html" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+
+            <Grid
+                Margin="0,20"
+                ColumnDefinitions="20,*"
+                WidthRequest="350">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="0" Grid.Column="1">
+                    <Label.Text>
+                        فرآیند احراز هویت شامل دریافت اطلاعاتی از کاربر ازجمله شماره تماس، کد ملی و اطلاعات بانکی وی میباشد. این اقدامات حریم شخصی وی را نقض نخواهد کرد و هیچ گونه سو استفاده ای انجام نخواهد شد و به هیچ شخص ثالث و ارگانی ارائه نخواهد شد.
+                    </Label.Text>
+                </Label>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="1" Grid.Column="1">
+                    <Label.Text>
+                        برای تکمیل فرآیند ثبت نام در گلد دیجیتال به اطلاعات کدملی،شماره کارت بانکی و تاریخ تولد به همراه شماره تماس است. این اطلاعات به دستور پلیس محترم فتا و برای جلوگیری پولشویی و شفافیت در معاملات دریافت می شود.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="2" Grid.Column="1">
+                    <Label.Text>
+                        ثبت نام کاربر در سایت گلد دیجیتال به معنای مطالعه موافقت نامه، آگاهی کامل از مفاد آن و پذیرش بی قید و شرط قوانین و مقررات استفاده از خدمات آن خواهد بود.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="3" Grid.Column="1">
+                    <Label.Text>
+                        این حق برای گلد دیجیتال محفوظ است که در هر زمان که بخواهد، با اعلام مراتب قبلی به کاربر، مفاد قوانین و مقررات را تغییر دهد.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="4" Grid.Column="1">
+                    <Label.Text>
+                        مسئولیت سود و زیان ناشی از معاملات آنلاین صرفا بر عهده ی تصمیمات خود کاربر می باشد، تمامی تراکنش های خرید و فروش با تایید کاربر بوده و غیر قابل بازگشت خواهد بود.
+                    </Label.Text>
+                </Label>
+
+
+                <Label
+                    Grid.Row="5"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="5" Grid.Column="1">
+                    <Label.Text>
+                        در صورت وارد آمدن خسارت به گلد دیجیتال در اثر فعالیت های غیر قانونی کاربر، گلد دیجیتال میتواند طبق قانون نسبت به مطالبه ی آن اقدام کند. در این مورد گلد دیجیتال قادر است کلیه موضوعات مشکوک به سوء استفاده از سیستم را به مقامات قضائی اعلام دارد تا تحت پیگرد قانونی قرار گیرند. همچنین در صورت مشکوک بودن حساب کاربری، تمامی خدمات آن به صورت یک طرفه و بدون اطلاع کاربر متوقف خواهد شد.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="6" Grid.Column="1">
+                    <Label.Text>
+                        بنابر قوانین سایت گلد دیجیتال و برگرفته از قوانین پلیس فتا جهت جلوگیری از پولشویی، این حق برای مجموعه محفوظ میباشد تا هر گونه واریز و برداشت مشکوک تا ٧٢ ساعت جهت بررسی بیشتر نگاه داشته شود.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="7" Grid.Column="1">
+                    <Label.Text>
+                        مواردی که در این مجموعه قوانین و مقررات نمی باشد، تابع قوانین و مقررات جمهوری اسلامی ایران و یا تابع قواعد اعلامی از سوی ما خواهد بود.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="8" Grid.Column="1">
+                    <Label.Text>
+                        در صورت شارژ حساب کاربری به وسیله کارت احراز نشده، تا زمان احراز کارت، مبلغ واریزی در حساب کاربر بلوکه میشود. در صورت عدم احراز کارت، مبلغ واریزی نهایت تا 72 ساعت بعد به همان کارت مرجوع خواهد شد. لذا امکان خرید با وجه مذکور تا پیش از احراز کارت وجود ندارد.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="9"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="9" Grid.Column="1">
+                    <Label.Text>
+                        فوت یا مفقودی صاحب حساب کاربری موجب بسته شدن حساب می شود و پس از طی مراحل قانونی دارایی مربوطه به وارث یا قیم وی مسترد میگردد.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="10"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="10" Grid.Column="1">
+                    <Label.Text>
+                        مسئولیت حفاظت از محرمانگی اطلاعات ورود به حساب کاربری بر عهده کاربر بوده و عواقب و خسارات ناشی از هر گونه افشای اطلاعات مذکور متوجه گلد دیجیتال نخواهد بود.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="11"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="11" Grid.Column="1">
+                    <Label.Text>
+                        کاربر گلد دیجیتال متعهد است که اطلاعات دقیق و صحیح را برای تکمیل فرآیند احراز هویت در گلد دیجیتال وارد کن، و هر کاربر مجاز به ایجاد تنها یک حساب کاربری خواهد بود.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="12"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="12" Grid.Column="1">
+                    <Label.Text>
+                        پس از تایید احراز هویت کاربر توسط گلد دیجیتال، امکان تغییر اطلاعات وجود ندارد؛ لذا دریافت وجه یا طلا فقط توسط مالک حساب کاربری و با اطلاعات ارائه شده در زمان احراز هویت امکان پذیر خواهد بود.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="13"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="13" Grid.Column="1">
+                    <Label.Text>
+                        در شرایط خاص بازار طلا و نوسانات شدید قیمتی، ممکن است ساعت یا سقف معاملات تغییر کرده و یا معاملات لغو شود.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="14"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="14" Grid.Column="1">
+                    <Label.Text>
+                        گلد دیجیتال می تواند بنا به صلاح دید خود، هر واریزی را با اعلام قبلی به واریز کننده عودت دهد. و برای اینکار هیچ توضیحی به کاربر داده نخواهد شد.
+                    </Label.Text>
+                </Label>
+
+
+                <Label
+                    Grid.Row="15"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="15" Grid.Column="1">
+                    <Label.Text>
+                        برای انجام برداشت های ریالی و ثبت درخواست تحویل فیزیکی طلا، باید ثبت نام شما تکمیل و احراز هویت شما توسط گلد دیجیتال تایید شده باشد.
+                    </Label.Text>
+                </Label>
+
+
+
+                <Label
+                    Grid.Row="16"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="16" Grid.Column="1">
+                    <Label.Text>
+                        تمام برداشت های ریالی بنا به بانک آن ها یا به صورت آنی و یا به صورت چرخه پایا تسویه خواهند شد، زمان تسویه برداشتهای ریالی آنی هر نیم ساعت یک بار میباشد و مبلغ برداشت شده نهایتا تا نیم ساعت به حساب مقصد واریز خواهد شد. (مدت زمان مذکور در شرایط ایده آل و عدم وجود اختلال در زیرساختهای پرداختیار خواهد بود.)
+                    </Label.Text>
+                </Label>
+
+
+                <Label
+                    Grid.Row="17"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="17" Grid.Column="1">
+                    <Label.Text>
+                        خرید و فروش طلا در گلد دیجیتال نیازمند پرداخت اجرت ساخت نخواهد بود، اما دریافت فیزیکی آن شامل این اجرت میشود. در این حالت، کاربر درخواست تحویل فیزیکی دارایی طلای خود را ثبت کرده و پس از انتخاب نوع طلای تحویلی از میان گزینه های موجود در تحویل طلا و پرداخت اجرت ساخت آن، طلای خود را تحویل خواهد گرفت.
+                    </Label.Text>
+                </Label>
+
+                <Label
+                    Grid.Row="18"
+                    Grid.Column="0"
+                    Text="&#x2022;" />
+                <Label Grid.Row="18" Grid.Column="1">
+                    <Label.Text>
+                        تمامی هدایای داده شده از سوی گلد دیجیتال، تحت عنوان پاداش ثبت نام، معامله در گلد دیجیتال و... ، تا یک ماه توسط کاربر قابل بهره برداری بوده و بعد از آن به صورت خودکار توسط سیستم از حساب کاربر حذف خواهد شد.
+                    </Label.Text>
+                </Label>
+
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

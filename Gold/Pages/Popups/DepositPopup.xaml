@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="Gold.Pages.Popups.DepositPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:Gold.Controls"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:Gold.ViewModels"
+    x:DataType="vm:DepositViewModel">
+
+    <toolkit:Popup.Resources>
+        <converters:NumberToCurrencyConverter x:Key="numToCurrency" />
+    </toolkit:Popup.Resources>
+
+    <VerticalStackLayout
+        Padding="20"
+        FlowDirection="RightToLeft"
+        WidthRequest="400">
+        <Entry
+            x:Name="entry2"
+            FlowDirection="LeftToRight"
+            FontSize="30"
+            Keyboard="Numeric"
+            Text="{Binding Amount, StringFormat='{0}'}" />
+        <Label Text="{Binding Text, Source={x:Reference entry2}, Converter={StaticResource numToCurrency}, StringFormat='{0} تومان', ConverterParameter='fa-IR'}" />
+
+        <Button Margin="0,40,0,0" Text="درخواست واریز" />
+    </VerticalStackLayout>
+
+
+
+</toolkit:Popup>
